@@ -9,7 +9,38 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+ *= require fonts
  *= require_tree .
  *= require_self
  */
+
+body {
+    background-color: rgb(6, 24, 42);
+    color: white;
+    font-family: 'SourceSansPro-Regular';
+}
+
+
+/* secondary c4c4c4 */
+
+.btn-primary {
+    color: rgb(6, 24, 42);
+    background-color: white;
+    font-size: 18px;
+}
+
+.btn-secondary {
+    color: white;
+    background-color: rgb(6, 24, 42);
+    border-color: white;
+    font-size: 18px;
+}
+
+.title {
+    font-family: 'SourceSansPro-Regular';
+    font-size: 35px;
+}
+
+.bg-dark {
+    background-color: rgb(6, 24, 42) !important;
+}
