@@ -39,8 +39,23 @@ body {
 .title {
     font-family: 'SourceSansPro-Regular';
     font-size: 35px;
+    letter-spacing: 2px;
 }
 
 .bg-dark {
     background-color: rgb(6, 24, 42) !important;
+}
+
+.box {
+    background-color: white;
+    color: rgb(6, 24, 42) !important;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-box {
+    object-fit: cover;
+    height: 200px;
+    width: 300px;
 }

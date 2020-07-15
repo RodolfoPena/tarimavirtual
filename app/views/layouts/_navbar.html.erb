@@ -11,7 +11,7 @@
         <% if user_signed_in? %>
         <%= link_to 'Salir', destroy_user_session_path, method: 'DELETE' %>
         <% else %>
-        <%= link_to 'Entrar', new_user_session_path, class:'btn btn-secondary' %>
+        <%= link_to 'Entrar', pages_select_path, class:'btn btn-secondary' %>
         <% end %>
     </span>
     </div>
