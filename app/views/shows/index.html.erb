@@ -24,17 +24,16 @@ a {
     <h3 class="pb-2">Categoria</h3>
     <div class="px-3 row">
         <% current_user.shows.each do |show| %>
-        <a href="<%= user_show_path(current_user, show)%>">
+        <a href="<%= show_access_user_show_path(id: show.id) %>">
         <div class="card card-box rounded-0 border-0" id="<%= show.id %>">
             <%= image_tag show.image, class:' h-100', style:"object-fit: cover"%>
             <div class="card-img-overlay to-hover" id="text<%= show.id %>">
                 <h5 class="card-title"><%= show.title %></h5>
                 <p class="card-text"><%= show.content %></p>
-                <p class="card-text"><%= show.date %></p>
+                <p class="card-text"><%= show.date %><%= show.time %></p>
             </div>
         </div>
         </a>
-        <%= link_to 'Entrar', show_access_user_show_path(id: show.id) %>
         <% end %>
     </div>
 </div>

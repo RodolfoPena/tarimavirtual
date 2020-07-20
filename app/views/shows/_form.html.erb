@@ -1,3 +1,12 @@
+<style>
+  .file-upload-button {
+    display: none;
+  }
+</style>
+<div class="container">
+<div class="row">
+<div class="offset-3 col-md-6">
+<h1 class="pb-3">Publicar nuevo show</h1>
 <%= form_with(model: [current_user, show], local: true) do |form| %>
   <% if show.errors.any? %>
     <div id="error_explanation">
@@ -12,15 +21,15 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.file_field :image, class:'form-control' %>
+    <%= form.file_field :image, class:'form-control', style:'' %>
   </div>
 
   <div class="form-group">
-    <%= form.text_field :title, class:'form-control'  %>
+    <%= form.text_field :title, class:'form-control', placeholder:'Titulo del show'  %>
   </div>
 
   <div class="form-group">
-    <%= form.text_area :content, class:'form-control'  %>
+    <%= form.text_area :content, class:'form-control', placeholder: 'Descripción' %>
   </div>
 
   <div class="form-group">
@@ -28,11 +37,20 @@
   </div>
 
   <div class="form-group">
-    <%= form.number_field :duration, class:'form-control'  %>
+    <%= form.time_select :time, class:'form-control'  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.number_field :duration, class:'form-control', placeholder: 'Duracion'  %>
   </div>
 
 
   <div class="form-group">
-    <%= form.submit %>
+    <%= form.submit(class:'btn btn-block btn-secondary' )%>
   </div>
 <% end %>
+
+<%= link_to 'Volver', user_shows_path(current_user)%>
+</div>
+</div>
+</div>

@@ -5,6 +5,7 @@ class ShowsController < ApplicationController
   # GET /shows.json
   def index
     @shows = Show.all
+    @today_shows = Show.where("DATE(date)=?", Date.today)
   end
 
   # GET /shows/1
@@ -104,6 +105,6 @@ class ShowsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def show_params
-      params.require(:show).permit(:image, :title, :content, :date, :duration, :user_id)
+      params.require(:show).permit(:image, :title, :content, :date, :time,  :duration, :user_id)
     end
 end

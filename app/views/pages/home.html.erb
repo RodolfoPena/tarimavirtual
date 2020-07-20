@@ -1,39 +1,79 @@
 <style>
+.main {
+  padding:50px;
+}
+
+.carusell {
+  padding-top: 30px;
+}
+
 .card-img-overlay {
     display:none
 }
 
+a {
+  text-decoration:none !important;
+}
 </style>
+
 
 <div class="jumbotron-fluid">
   <div class="container text-center">
     <h1 class="display-4">Súbete a la tarima!</h1>
     <p class="lead">El primer espacio para premiar y validar tu propuesta</p>
+    <br>
+    <div class="offset-3 col-md-6">
+    <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Busca según tus preferencias">
+    </div>
   </div>
 </div>
 
-<div class="p-5">
-    <h3 class="pb-2">Categoria</h3>
+<div class="main">
+<% if @today_shows != nil %>
+<div class="carusell">
+    <h3 class="pb-2">Hoy</h3>
     <div class="px-3 row">
-        <% @shows.each do |show| %>
+        <% @today_shows.each do |show| %>
+        <a href="">
         <div class="card card-box rounded-0 border-0" id="<%= show.id %>">
             <%= image_tag show.image, class:' h-100', style:"object-fit: cover"%>
             <div class="card-img-overlay to-hover" id="text<%= show.id %>">
                 <h5 class="card-title"><%= show.title %></h5>
                 <p class="card-text"><%= show.content %></p>
-                <p class="card-text"><%= show.date %></p>
+                <p class="card-text"><%= show.date %><%= show.time %></p>
             </div>
         </div>
+        </a>
         <% end %>
     </div>
+</div>
+<% end %>
+<br>
+<div class="carusell">
+    <h3 class="pb-2">Categoria</h3>
+    <div class="px-3 row">
+        <% @shows.each do |show| %>
+        <a href="">
+        <div class="card card-box rounded-0 border-0" id="<%= show.id %>">
+            <%= image_tag show.image, class:' h-100', style:"object-fit: cover"%>
+            <div class="card-img-overlay to-hover" id="text<%= show.id %>">
+                <h5 class="card-title"><%= show.title %></h5>
+                <p class="card-text"><%= show.content %></p>
+                <p class="card-text"><%= show.date %><%= show.time %></p>
+            </div>
+        </div>
+        </a>
+        <% end %>
+    </div>
+</div>
 </div>
 
 <script>
     $(".card").hover(function(){
         var id_card = $(this).attr('id');
         var id_text  =  'text' + id_card ;
-        document.getElementById(id_text).style.background = "black";
-        document.getElementById(id_text).style.opacity = .7;
+        document.getElementById(id_text).style.background = "white";
+        document.getElementById(id_text).style.opacity = .8;
         document.getElementById(id_text).style.display = "block";
     }, function(){
         var id_card = $(this).attr('id');

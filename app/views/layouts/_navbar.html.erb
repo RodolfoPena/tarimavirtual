@@ -9,7 +9,8 @@
     </ul>
     <span class="navbar-text">
         <% if user_signed_in? %>
-        <%= link_to 'Salir', destroy_user_session_path, method: 'DELETE' %>
+        <%= link_to current_user.email, user_shows_path(current_user) %>
+        <%= link_to 'Salir', destroy_user_session_path, method: 'DELETE', class:'pl-2' %>
         <% else %>
         <%= link_to 'Entrar', pages_select_path, class:'btn btn-secondary' %>
         <% end %>
