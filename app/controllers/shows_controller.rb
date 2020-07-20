@@ -42,7 +42,7 @@ class ShowsController < ApplicationController
   def show_access
     url_base = "https://tarimavirtual3.kodim.tech/bigbluebutton/api/"
     room_id = @show.meeting_id
-    full_names = "#{current_user.last_name}+#{current_user.first_name}"
+    full_names = "#{current_user.email}"
     attendee_pw = 'ap'
     moderator_pw = 'mp'
 
