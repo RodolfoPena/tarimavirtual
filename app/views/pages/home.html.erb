@@ -29,23 +29,39 @@ a {
 </div>
 
 <div class="main">
-<div class="carusell">
-    <h3 class="pb-2">Hoy</h3>
-    <div class="px-3 row">
-        <% @shows.each do |show| %>
-        <a href="">
-        <div class="card card-box rounded-0 border-0" id="<%= show.id %>">
-            <%= image_tag show.image, class:' h-100', style:"object-fit: cover"%>
-            <div class="card-img-overlay to-hover" id="text<%= show.id %>">
-                <h5 class="card-title"><%= show.title %></h5>
-                <p class="card-text"><%= show.content %></p>
-                <p class="card-text"><%= show.date %><%= show.time %></p>
+    <div class="carusell">
+        <h3 class="pb-2">Shows en vivo</h3>
+        <% if user_signed_in? %>
+        <div class="px-3 row">
+            <% @shows.each do |show| %>
+            <a href="<%= show_access_user_show_path(user_id:current_user.id, id: show.id) %>">
+            <div class="card card-box rounded-0 border-0" id="<%= show.id %>">
+                <%= image_tag show.image, class:' h-100', style:"object-fit: cover"%>
+                <div class="card-img-overlay to-hover" id="text<%= show.id %>">
+                    <h5 class="card-title"><%= show.title %></h5>
+                    <p class="card-text"><%= show.content %></p>
+                    <p class="card-text"><%= show.date %><%= show.time %></p>
+                </div>
             </div>
+            </a>
+            <% end %>
         </div>
-        </a>
+        <% else %>
+        <div class="px-3 row">
+            <% @shows.each do |show| %>
+            <div class="card card-box rounded-0 border-0" id="<%= show.id %>">
+                <%= image_tag show.image, class:' h-100', style:"object-fit: cover"%>
+                <div class="card-img-overlay to-hover" id="text<%= show.id %>">
+                    <h5 class="card-title"><%= show.title %></h5>
+                    <p class="card-text"><%= show.content %></p>
+                    <p class="card-text"><%= show.date %><%= show.time %></p>
+                </div>
+            </div>
+            <% end %>
+        </div>
         <% end %>
+
     </div>
-</div>
 </div>
 </div>
 
