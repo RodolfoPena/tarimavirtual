@@ -28,29 +28,8 @@ a {
   </div>
 </div>
 
-<div class="main">
-<% if @today_shows != nil %>
 <div class="carusell">
     <h3 class="pb-2">Hoy</h3>
-    <div class="px-3 row">
-        <% @today_shows.each do |show| %>
-        <a href="">
-        <div class="card card-box rounded-0 border-0" id="<%= show.id %>">
-            <%= image_tag show.image, class:' h-100', style:"object-fit: cover"%>
-            <div class="card-img-overlay to-hover" id="text<%= show.id %>">
-                <h5 class="card-title"><%= show.title %></h5>
-                <p class="card-text"><%= show.content %></p>
-                <p class="card-text"><%= show.date %><%= show.time %></p>
-            </div>
-        </div>
-        </a>
-        <% end %>
-    </div>
-</div>
-<% end %>
-<br>
-<div class="carusell">
-    <h3 class="pb-2">Categoria</h3>
     <div class="px-3 row">
         <% @shows.each do |show| %>
         <a href="">
